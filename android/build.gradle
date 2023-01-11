@@ -60,3 +60,15 @@ dependencies {
     implementation group: 'com.android.support', name: 'support-v4', version: '27.0.0'
     implementation "com.google.zxing:core:3.3.0"
 }
+
+// ###########
+subprojects {  // <-- Add this line
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion 28
+                buildToolsVersion '28.0.3'
+            }
+        }
+    }
+}
